@@ -1,7 +1,10 @@
 import React from "react";
 import XucXac from "./XucXac";
+import { useSelector } from "react-redux";
 
 export default function DanhSachXucXac() {
+  const mangXucXac = useSelector((state) => state.GameBauCuaReducer.mangXucXac);
+  console.log(mangXucXac);
   return (
     <div className="ml-5 xucxac">
       <div
@@ -10,13 +13,13 @@ export default function DanhSachXucXac() {
       ></div>
       <div className="row">
         <div className="xucxac__img1">
-          <XucXac />
+          <XucXac xucXacItem={mangXucXac[0]} />
         </div>
         <div className="xucxac__img2">
-          <XucXac />
+          <XucXac xucXacItem={mangXucXac[1]} />
         </div>
         <div className="xucxac__img3">
-          <XucXac />
+          <XucXac xucXacItem={mangXucXac[2]} />
         </div>
       </div>
       <div className="xucxac__button">

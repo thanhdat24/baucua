@@ -1,6 +1,8 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
-export default function DiemCuoc() {
+export default function DiemCuoc(props) {
+  const tienThuong = useSelector((state) => state.GameBauCuaReducer.tienThuong);
   return (
     <div>
       <div className="text-center">
@@ -26,7 +28,7 @@ export default function DiemCuoc() {
               fontSize: 25,
             }}
           >
-            100
+            {tienThuong.toLocaleString()}
             <sub
               style={{
                 color: "yellow",

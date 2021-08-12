@@ -1,9 +1,10 @@
 import React from "react";
 
-export default function QuanCuoc() {
+export default function QuanCuoc(props) {
+  const { quanCuoc } = props;
   return (
     <div className="mt-3">
-      <img style={{ width: "55%" }} src="./assets/bau.png" alt="bau" />
+      <img style={{ width: "55%" }} src={quanCuoc.hinhAnh} alt={quanCuoc.ma} />
       <div
         className="bg-success"
         style={{ width: "55%", borderRadius: "10px" }}
@@ -13,7 +14,7 @@ export default function QuanCuoc() {
             <i style={{ fontSize: 13 }} className="fa fa-plus"></i>
           </button>
           <span className="mx-2" style={{ color: "yellow", fontSize: 20 }}>
-            1000
+            {quanCuoc.diemCuoc}
           </span>
           <button className="btn btn-danger">
             <i style={{ fontSize: 13 }} className="fa fa-minus"></i>

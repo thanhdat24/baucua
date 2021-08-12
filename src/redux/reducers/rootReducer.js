@@ -1,6 +1,6 @@
-import GameBauCua from "../../component/GameBauCua";
+import GameBauCuaReducer from "./GameBauCuaReducer";
 import { combineReducers } from "redux";
 
 export const rootReducer = combineReducers({
-  GameBauCua,
+  GameBauCuaReducer,
 });
