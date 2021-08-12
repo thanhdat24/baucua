@@ -1,4 +1,5 @@
 import React from "react";
+import XucXac from "./XucXac";
 
 export default function DanhSachXucXac() {
   return (
@@ -9,13 +10,13 @@ export default function DanhSachXucXac() {
       ></div>
       <div className="row">
         <div className="xucxac__img1">
-          <img style={{ width: "25%" }} src="./assets/bau.png" alt="bau" />
+          <XucXac />
         </div>
         <div className="xucxac__img2">
-          <img style={{ width: "25%" }} src="./assets/bau.png" alt="bau" />
+          <XucXac />
         </div>
         <div className="xucxac__img3">
-          <img style={{ width: "25%" }} src="./assets/bau.png" alt="bau" />
+          <XucXac />
         </div>
       </div>
       <div className="xucxac__button">

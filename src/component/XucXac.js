@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Fragment } from "react";
 
 export default function XucXac() {
-    return (
-        <div>
-            
-        </div>
-    )
+  return (
+    <Fragment>
+      <img style={{ width: "25%" }} src="./assets/bau.png" alt="bau" />;
+    </Fragment>
+  );
 }
