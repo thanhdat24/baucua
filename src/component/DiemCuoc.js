@@ -1,7 +1,10 @@
+import { useDispatch, useSelector } from "react-redux";
+
 import React from "react";
-import { useSelector } from "react-redux";
+import { resetGameAction } from "../redux/actions/GameBauCuaAction";
 
 export default function DiemCuoc(props) {
+  const dispatch = useDispatch();
   const tienThuong = useSelector((state) => state.GameBauCuaReducer.tienThuong);
   return (
     <div>
@@ -43,6 +46,9 @@ export default function DiemCuoc(props) {
 
       <div className="text-center">
         <button
+          onClick={() => {
+            dispatch(resetGameAction());
+          }}
           style={{
             backgroundColor: "rgba(226, 11, 174)",
             borderColor: "rgba(226, 11, 174)",

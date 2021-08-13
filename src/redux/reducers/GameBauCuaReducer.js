@@ -46,7 +46,41 @@ export const GameBauCua = (state = initialState, action) => {
         mangXucXacNgauNhien.push(xucXacNgauNhien);
       }
 
+      // Xử lí tăng điểm thưởng
+      mangXucXacNgauNhien.forEach((xucXacNN, index) => {
+        let indeXucXacNN = state.mangCuoc.findIndex(
+          (qc) => qc.ma === xucXacNN.ma
+        );
+
+        if (indeXucXacNN !== -1) {
+          state.tienThuong += state.mangCuoc[indeXucXacNN].diemCuoc;
+        }
+      });
+
+      // Xử lí hoàn tiền
+      state.mangCuoc.forEach((qc, index) => {
+        let indexXucXacNN = mangXucXacNgauNhien.findIndex(
+          (xxnn) => xxnn.ma === qc.ma
+        );
+
+        if (indexXucXacNN !== -1) {
+          state.tienThuong += qc.diemCuoc;
+        }
+      });
+
+      // Xử lý làm mới game
+      state.mangCuoc = state.mangCuoc.map((qc, index) => {
+        return { ...qc, diemCuoc: 0 };
+      });
       return { ...state, mangXucXac: mangXucXacNgauNhien };
+    }
+
+    case "RESET_GAME": {
+      state.tienThuong = 1000;
+      state.mangCuoc = state.mangCuoc.map((qc, index) => {
+        return { ...qc, diemCuoc: 0 };
+      });
+      return { ...state };
     }
     default:
       return { ...state };
