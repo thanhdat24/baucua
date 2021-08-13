@@ -36,6 +36,18 @@ export const GameBauCua = (state = initialState, action) => {
       }
       return { ...state, mangCuoc: mangCuocUpdate };
     }
+    case "PLAY_GAME": {
+      const mangXucXacNgauNhien = [];
+
+      for (let i = 0; i < 3; i++) {
+        // Tạo ra 1 số ngẫu nhiên từ 0->5
+        let soNgauNhien = Math.floor(Math.random() * 6);
+        let xucXacNgauNhien = state.mangCuoc[soNgauNhien];
+        mangXucXacNgauNhien.push(xucXacNgauNhien);
+      }
+
+      return { ...state, mangXucXac: mangXucXacNgauNhien };
+    }
     default:
       return { ...state };
   }
