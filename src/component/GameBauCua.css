@@ -65,26 +65,19 @@ label {
 .xucxac {
   position: relative;
 }
-
 .xucxac__img1 {
   position: absolute;
-  top: 15%;
-  left: 23%;
+  transform: translate(106%, -243%);
 }
 .xucxac__img2 {
-  position: absolute;
-  top: 45%;
-  left: 11%;
+  transform: translate(4%, -164%);
 }
 
 .xucxac__img3 {
-  position: absolute;
-  top: 45%;
-  left: 35%;
+  transform: translate(-14%, -164%);
 }
 .xucxac__button img {
-  margin-left: 73px;
-  margin-top: 25px;
+  transform: translate(95%, -212%);
 }
 
 .col-4 {
