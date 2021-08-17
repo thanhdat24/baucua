@@ -1,60 +1,103 @@
-/* * { box-sizing: border-box; } */
+* {
+  box-sizing: border-box;
+}
 
 @font-face {
   font-family: "Pony";
   src: url(./font/Pony.ttf);
 }
 #GameBauCua {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   font-family: "Pony";
   background-color: rgb(254, 153, 2);
-  min-height: 721px;
+}
+.quantity {
+  position: absolute;
+  color: green;
+  font-size: 20px;
+  top: 0;
+  right: 44%;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 50%;
+  border: 5px solid red;
+}
+.plate {
+  width: 400px;
+  height: 400px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.xucxac__item {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  height: 30%;
+  margin-left: 36px;
+  margin-top: 48px;
 }
 
-.scene {
-  width: 50px;
-  height: 50px;
-  margin-top: 80px;
-  perspective: 50px;
+.ex1 {
+  perspective: 800px;
+  height: 100%;
+}
+
+.ex2 {
+  perspective: 150px;
 }
 
 .cube {
-  width: 50px;
-  height: 50px;
-  position: relative;
   transform-style: preserve-3d;
-  transition: transform infinite;
-  transform: translateZ(-25px);
+  /* animation: mymove 0.3s infinite; */
+  transform: rotateY(16deg) rotateX(0deg);
+  height: 100%;
 }
-
-.cube__face {
+@keyframes mymove {
+  from {
+    transform: rotateX(-45deg) rotateY(30deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.side {
   position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 2px solid black;
-  line-height: 40px;
-  font-size: 5px;
-  font-weight: bold;
-  color: white;
+  width: 72px;
+  height: 72px;
+  background: rgba(100, 100, 100, 0.5);
   text-align: center;
+  line-height: 62px;
+  border: 4px solid red;
+  border-radius: 4px;
+}
+.side img {
+  border-radius: 4px;
 }
 
 .front {
-  transform: rotateY(0deg) rotateX(0deg) rotateZ(0deg) translateZ(25px);
-}
-.right {
-  transform: rotateY(90deg) rotateX(0deg) rotateZ(0deg) translateZ(25px);
-}
-.back {
-  transform: rotateY(180deg) rotateX(0deg) rotateZ(0deg) translateZ(25px);
-}
-.left {
-  transform: rotateY(-90deg) rotateX(0deg) rotateZ(0deg) translateZ(25px);
+  transform: translateZ(32px);
 }
 .top {
-  transform: rotateX(90deg) rotateY(0deg) rotateZ(0deg) translateZ(25px);
+  transform: rotateX(90deg) translateZ(32px);
+}
+.right {
+  transform: rotateY(90deg) translateZ(32px);
+}
+.left {
+  transform: rotateY(-90deg) translateZ(32px);
 }
 .bottom {
-  transform: rotateX(-90deg) rotateY(0deg) rotate(0deg) translateZ(25px);
+  transform: rotateX(-90deg) translateZ(32px);
+}
+.back {
+  transform: rotateY(-180deg) translateZ(32px);
 }
 
 label {
@@ -62,24 +105,3 @@ label {
 }
 
 /* -------------------------------------------  */
-.xucxac {
-  position: relative;
-}
-.xucxac__img1 {
-  position: absolute;
-  transform: translate(106%, -243%);
-}
-.xucxac__img2 {
-  transform: translate(4%, -164%);
-}
-
-.xucxac__img3 {
-  transform: translate(-14%, -164%);
-}
-.xucxac__button img {
-  transform: translate(95%, -212%);
-}
-
-.col-4 {
-  max-width: 33%;
-}

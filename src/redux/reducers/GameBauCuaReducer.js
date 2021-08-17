@@ -1,11 +1,11 @@
 const initialState = {
   mangCuoc: [
-    { ma: "bau", hinhAnh: "./assets/bau.png", diemCuoc: 0 },
-    { ma: "cua", hinhAnh: "./assets/cua.png", diemCuoc: 0 },
-    { ma: "tom", hinhAnh: "./assets/tom.png", diemCuoc: 0 },
-    { ma: "ca", hinhAnh: "./assets/ca.png", diemCuoc: 0 },
-    { ma: "nai", hinhAnh: "./assets/nai.png", diemCuoc: 0 },
-    { ma: "ga", hinhAnh: "./assets/ga.png", diemCuoc: 0 },
+    { ma: "bau", hinhAnh: "./assets/bau.png", diemCuoc: 0, soLuong: 0 },
+    { ma: "cua", hinhAnh: "./assets/cua.png", diemCuoc: 0, soLuong: 0 },
+    { ma: "tom", hinhAnh: "./assets/tom.png", diemCuoc: 0, soLuong: 0 },
+    { ma: "ca", hinhAnh: "./assets/ca.png", diemCuoc: 0, soLuong: 0 },
+    { ma: "nai", hinhAnh: "./assets/nai.png", diemCuoc: 0, soLuong: 0 },
+    { ma: "ga", hinhAnh: "./assets/ga.png", diemCuoc: 0, soLuong: 0 },
   ],
   tienThuong: 1000,
   mangXucXac: [
@@ -27,10 +27,12 @@ export const GameBauCua = (state = initialState, action) => {
         if (action.amount && state.tienThuong > 0) {
           mangCuocUpdate[index].diemCuoc += 100;
           state.tienThuong -= 100;
+          mangCuocUpdate[index].soLuong += 1;
         } else {
           if (mangCuocUpdate[index].diemCuoc > 0 && action.amount === false) {
             mangCuocUpdate[index].diemCuoc -= 100;
             state.tienThuong += 100;
+            mangCuocUpdate[index].soLuong -= 1;
           }
         }
       }
@@ -70,7 +72,7 @@ export const GameBauCua = (state = initialState, action) => {
 
       // Xử lý làm mới game
       state.mangCuoc = state.mangCuoc.map((qc, index) => {
-        return { ...qc, diemCuoc: 0 };
+        return { ...qc, diemCuoc: 0, soLuong: 0 };
       });
       return { ...state, mangXucXac: mangXucXacNgauNhien };
     }
@@ -78,7 +80,7 @@ export const GameBauCua = (state = initialState, action) => {
     case "RESET_GAME": {
       state.tienThuong = 1000;
       state.mangCuoc = state.mangCuoc.map((qc, index) => {
-        return { ...qc, diemCuoc: 0 };
+        return { ...qc, diemCuoc: 0, soLuong: 0 };
       });
       return { ...state };
     }
